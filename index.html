@@ -29,16 +29,31 @@
             <li class="empty">No scans yet</li>
           </ul>
           <transition-group name="scans" tag="ul">
-            <li v-for="scan in scans" :key="scan.date" :title="scan.content">{{ scan.content }}></li>
+            <!-- <li v-for="scan in scans" :key="scan.date" :title="scan.content">{{ scan.content }}></li> -->
+            <li v-for="scan in scans" :key="scan.date" :title="scan.content">{{ scan.content }}><p id="lol"></p></li>
+          
+            
+            
             
           </transition-group>
         </section>
-        <button>Check-Out</button>
+        <button onclick="getElementById('lol').innerHTML=`${GetRandom(100)} kgCO2`">Check-Out</button>
+        
+        <p id="demo"></p>
+
       </div>
       <div class="preview-container">
         <video id="preview"></video>
       </div>
     </div>
     <script type="text/javascript" src="app.js"></script>
+    <script>
+      var carbon = document.getElementsByClassName("carbon")
+      console.log(carbon)
+      function GetRandom(max){
+
+      return Math.floor(Math.random() * max);
+      }
+    </script>
   </body>
 </html>
